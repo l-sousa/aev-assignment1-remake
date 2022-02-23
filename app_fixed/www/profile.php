@@ -70,7 +70,13 @@
                 <div style="padding:5%">
 
                     <h4>Profile Settings</h4>
-
+                    <div class="text-danger">
+                            <?php
+                                if (isset($_GET['error'])) {
+                                    echo "<h5>" . htmlspecialchars($_GET['error']) . "</h5>";
+                                }
+                            ?>
+                        </div>
                     <div class="row mt-3">
                         <div class="col-md-12">
                             <label>Profile Picture</label>
@@ -128,13 +134,6 @@
                         <div class="col-md-4"><label>Old Password</label><input type="password" class="form-control" name="Old_password"></div>
                         <div class="col-md-4"><label>New Password</label><input type="password" class="form-control" name="New_Password"></div>
                         <div class="col-md-4"><label>Verify Password</label><input type="password" class="form-control" name="Re_type_new_password"></div>
-                        <div>
-                            <?php
-                            if (isset($_GET['error'])) {
-                                echo htmlspecialchars($_GET['error']);
-                            }
-                            ?>
-                        </div>
                         <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>" />
                         <div class="col-md-12 mt-3"><button class="btn btn-primary" type="submit">Save Password</button></div>
                     </form>
